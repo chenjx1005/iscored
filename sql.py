@@ -26,15 +26,13 @@ class Tournament(Base):
     url = CharField()
     
 class PopTournament(Base):
-    region = ForeignKeyField(Region, related_name='pop_tournaments')
-    tournament_id = IntegerField()
-    name = CharField()
-    url = CharField()
+    tournament = ForeignKeyField(Tournament, related_name='pop_tournaments')
 
 class Season(Base):
     tournament = ForeignKeyField(Tournament, related_name='seasons')
     season_id = IntegerField()
-    time = DateField()
+    begin_year = IntegerField()
+    end_year = IntegerField()#end year of the season
     
 class Stage(Base):
     season = ForeignKeyField(Season, related_name='stages')
@@ -45,7 +43,6 @@ class Team(Base):
     name = CharField()
     
 class Player(Base):
-    team = ForeignKeyField(Team, related_name='players')
     player_id = IntegerField()
     name = CharField()
     
@@ -55,8 +52,14 @@ class Match(Base):
     time = DateTimeField()
     home = ForeignKeyField(Team, related_name='homes')
     away = ForeignKeyField(Team, related_name='aways')
+    score = CharField()
+    
+class PlayerStatPerMatch(Base):
+    match = ForeignKeyField(Match, related_name='playerstats')
+    player = ForeignKeyField(Player, related_name='permatchstats')
+    stat_info = CharField()
 
 if __name__ == "__main__":       
     db.connect()
-    db.create_tables([PopTournament])
+    db.create_tables([PlayerStatPerMatch])
     db.close()

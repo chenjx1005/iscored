@@ -1,0 +1,25 @@
+incident format
+
+type:{value: 1, displayName: "Pass"}
+
+type:{value: 16, displayName: "Goal"} isOwnGoal:true or null
+
+type:{value: 14, displayName: "ShotOnPost"}
+
+type:{value: 18, displayName: "SubstitutionOff"}
+
+type:{value: 18, displayName: "SubstitutionOff"}
+
+type:{value: 17, displayName: "Card"} cardType:{value: 33, displayName: "Red"}
+
+type:{value: 19, displayName: "SubstitutionOn"}
+
+type:{value: 17, displayName: "Card"} cardType:{value: 31, displayName: "Yellow"}
+
+type:{value: 7, displayName: "Tackle"}
+
+type:{value: 51, displayName: "Error"}
+
+type:{value: 10, displayName: "Save"}
+
+type:{value: 17, displayName: "Card"} cardType:{value: 32, displayName: "SecondYellow"}
